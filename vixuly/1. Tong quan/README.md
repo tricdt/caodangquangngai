@@ -22,13 +22,20 @@
 
 * Vi điều khiển thường được sử dụng trong các hệ thống nhúng. Nó cũng được sử dụng trong các thiết bị điện, điện tử như máy giặt, lò vi sóng, điện thoại, đầu đọc DVD, thiết bị đa phương tiện hay dây chuyền sản xuất tự động ...
 RAM
-![alt text](image-1.png)
+
+<div style="text-align: center;">
+  <img src="./Images/image-1.png" alt="Description" />
+</div>
 
 ROM
-![alt text](image-2.png)
+<div style="text-align: center;">
+  <img src="./Images/image-2.png" alt="Description" />
+</div>
 
 Các thiết bị ngoại vi
-![alt text](image-3.png)
+<div style="text-align: center;">
+  <img src="./Images/image-3.png" alt="Description" />
+</div>
 
 GPIO: Cổng vào/ra
 ADC: Analog to Digital Convert
@@ -41,10 +48,12 @@ UART: Cổng giao tiếp nối tiếp (USB)
 
 01010101, 0101 0101 0101 0101, 0101 0101 0101 0101 0101 0101 0101 0101, 0101 0101 0101 0101 0101 0101 0101 0101 0101 0101 0101 0101 0101 0101 0101 0101,
 
-![alt text](image-4.png)
+<div style="text-align: center;">
+  <img src="./Images/image-4.png" alt="Description" />
+</div>
 Bộ nhớ dùng để lưu chương trình cho vi xử lý thực hiện và lưu dữ liệu cần xử lý, các ngoại vi dùng để xuất nhập dữ liệu từ bên ngoài vào xử lý và điều khiển trở lại. Các khối này liên kết với nhau và tạo thành một hệ thống vi xử lý
 
 Yêu cầu điều khiển càng cao thì hệ thống càng phức tạp và nếu yêu cầu điều khiển đơn giản thì hệ thống vi xử lý cũng phải có đầy đủ các khối trên
 
 Để kết nối các khối trên tạo thành một hệ thống vi xử lý đòi hỏi người thiết kế phải rất hiểu biết về tất cả các thành phần vi xử lý, bộ nhớ, các thiết bị ngoại vi. Hệ thống tạo ra khá phức tạp, chiếm nhiều không gian, mạch in, và vấn đề chính là đòi hỏi người thiết kế phải hiểu thật rõ về hệ thống. Một lý do nữa là vi xử lý thường xử lý dữ liệu theo byte hoặc word trong khi các đối tượng điều khiển trong công nghiệp thường điều khiển theo bit
-Chính vì sự phức tạp trên nên các nhà chế tạo đã tích hợp bộ nhớ và một số thiết bị ngoại vi cùng với vi xử lý tạo thành một IC gọi là vi điều khiển - Microcontroller# caodangquangngai
+Chính vì sự phức tạp trên nên các nhà chế tạo đã tích hợp bộ nhớ và một số thiết bị ngoại vi cùng với vi xử lý tạo thành một IC gọi là vi điều khiển - Microcontroller
