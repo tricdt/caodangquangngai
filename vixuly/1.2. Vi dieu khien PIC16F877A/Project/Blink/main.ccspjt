@@ -1,0 +1,43 @@
+[PROJECT]
+Target=main.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.112
+Compiler=PCM
+CCSVersion=5.112
+[Target Data]
+FileList=main.c
+[Directories]
+Include=
+[F:\Edu\Vi dieu khien\doc\vixuly\1.2. Vi dieu khien PIC16F877A\Project\Blink\main]
+Type=4
+[mru-list]
+1=main.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=1
+D1=31-10-2025
+D1_L=6
+D1_L1=[72565]Project Opened.
+D1_L2=[72587]Project Closed.
+D1_L3=[72587]Project Opened.
+D1_L4=[72592]Started Editing.
+D1_L5=[74935]Stopped Editing.
+D1_L6=[75124]Started Editing.
+
+[Opened Files]
+1=main.c
+t1=1
+Count=1
+2=C:\Program Files (x86)\PICC\Devices\16F877A.h
+t2=81
+[main.c]
+Type=4
+
+[defines]
+buildcount=12
+[Units]
+Count=1
+1=main (main)

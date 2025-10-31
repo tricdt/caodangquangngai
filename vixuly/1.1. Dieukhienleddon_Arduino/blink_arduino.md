@@ -50,5 +50,3 @@ void loop() {
 - **`delay(500)`**
   - Hàm delay có chức năng dừng chương trình trong vòng 500ms
 
-
-
