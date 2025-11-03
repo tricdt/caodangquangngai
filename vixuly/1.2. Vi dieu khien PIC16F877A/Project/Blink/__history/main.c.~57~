@@ -7,13 +7,26 @@
 void main() //Chuong trinh chinh
 {
    set_tris_d(0x00); //PORT D la OUTPUT
-
    while(TRUE)
    {
-      for(unsigned char i=0; i<8; i++){
-         output_d(0x01 << i);
-         delay_ms(1000);
-      }
+      output_high(PIN_D0); //xuat muc cao ra chan RD0 cua vi dieu khien
+      output_high(PIN_D1);
+      output_high(PIN_D2);
+      output_high(PIN_D3);
+      output_high(PIN_D4); //xuat muc cao ra chan RD0 cua vi dieu khien
+      output_high(PIN_D5);
+      output_high(PIN_D6);
+      output_high(PIN_D7);
+      delay_ms(1000);
+      output_low(PIN_D0); //Xuat muc thap ra chan RD0 cua vi dieu khien
+      output_low(PIN_D1);
+      output_low(PIN_D2);
+      output_low(PIN_D3);
+      output_low(PIN_D4); //Xuat muc thap ra chan RD0 cua vi dieu khien
+      output_low(PIN_D5);
+      output_low(PIN_D6);
+      output_low(PIN_D7);
+      delay_ms(1000);
    }
 //!   unsigned char x = 0;
 //!   while(x % 5) 

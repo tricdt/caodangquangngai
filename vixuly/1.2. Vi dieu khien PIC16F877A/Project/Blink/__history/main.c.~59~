@@ -3,15 +3,14 @@
 #use delay(crystal=20000000) //Khai bao thach anh su dung 20Mhz
 
 
-
+unsigned char led[8] = {PIN_D0, PIN_D1, PIN_D2, PIN_D3, PIN_D4, PIN_D5, PIN_D6, PIN_D7}
 void main() //Chuong trinh chinh
 {
    set_tris_d(0x00); //PORT D la OUTPUT
-
    while(TRUE)
    {
       for(unsigned char i=0; i<8; i++){
-         output_d(0x01 << i);
+         output_high(led[i]);
          delay_ms(1000);
       }
    }
