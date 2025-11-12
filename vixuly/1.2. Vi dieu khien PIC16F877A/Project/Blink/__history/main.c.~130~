@@ -13,11 +13,11 @@ void main() //Chuong trinh chinh
             output_d(out);
             delay_ms(100);
          }
-         for(unsigned char i=1; i<=8; i++){
-            out = out & 0xFF>>i;
-            output_d(out);
-            delay_ms(100);
-         }
+//!         for(unsigned char i=1; i<=8; i++){
+//!            out = out & 0xFF>>i;
+//!            output_d(out);
+//!            delay_ms(100);
+//!         }
       }
 
 }

@@ -5,20 +5,21 @@ void main() //Chuong trinh chinh
 {
    set_tris_d(0x00); //PORT D la OUTPUT
 
-
+      unsigned char out = 0x00;
       while(TRUE){
-         unsigned char out = 0x00;
+      
          for(unsigned char i=0; i<8; i++){
             out = out | 0x01 << i;
             output_d(out);
             delay_ms(100);
          }
-         for(unsigned char i=1; i<=8; i++){
+         for(unsigned char i=0; i<8; i++){
             out = out & 0xFF>>i;
             output_d(out);
             delay_ms(100);
          }
       }
+
 
 }
 

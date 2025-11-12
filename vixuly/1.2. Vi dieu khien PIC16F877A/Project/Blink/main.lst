@@ -1,18 +1,18 @@
-CCS PCM C Compiler, Version 5.112, 5967               03-Nov-25 20:42
+CCS PCM C Compiler, Version 5.112, 5967               12-Nov-25 20:35
 
                Filename:   F:\Edu\Vi dieu khien\doc\vixuly\1.2. Vi dieu khien PIC16F877A\Project\Blink\main.lst
 
-               ROM used:   71 words (1%)
+               ROM used:   96 words (1%)
                            Largest free fragment is 2048
-               RAM used:   7 (2%) at main() level
-                           8 (2%) worst case
-               Stack used: 1 locations
+               RAM used:   8 (2%) at main() level
+                           9 (2%) worst case
+               Stack used: 0 locations
                Stack size: 8
 
 *
 0000:  MOVLW  00
 0001:  MOVWF  0A
-0002:  GOTO   01A
+0002:  GOTO   018
 0003:  NOP
 .................... #include <16F877A.h> //Khai bao thu vien su dung 
 .................... //////////// Standard Header file for the PIC16F877A device ////////////////
@@ -29,9 +29,8 @@ CCS PCM C Compiler, Version 5.112, 5967               03-Nov-25 20:42
 .................... 
 .................... #list
 .................... 
-.................... 
 .................... #use delay(crystal=20000000) //Khai bao thach anh su dung 20Mhz
-0004:  MOVLW  23
+0004:  MOVLW  24
 0005:  MOVWF  04
 0006:  BCF    03.7
 0007:  MOVF   00,W
@@ -50,87 +49,102 @@ CCS PCM C Compiler, Version 5.112, 5967               03-Nov-25 20:42
 0014:  GOTO   013
 0015:  DECFSZ 00,F
 0016:  GOTO   00A
-0017:  BCF    0A.3
-0018:  BCF    0A.4
-0019:  GOTO   041 (RETURN)
-.................... 
-.................... 
+0017:  RETURN
 .................... 
 .................... void main() //Chuong trinh chinh
-001A:  MOVF   03,W
-001B:  ANDLW  1F
-001C:  MOVWF  03
-001D:  BSF    03.5
-001E:  BSF    1F.0
-001F:  BSF    1F.1
-0020:  BSF    1F.2
-0021:  BCF    1F.3
-0022:  MOVLW  07
-0023:  MOVWF  1C
-0024:  BCF    03.7
+0018:  MOVF   03,W
+0019:  ANDLW  1F
+001A:  MOVWF  03
+001B:  BSF    03.5
+001C:  BSF    1F.0
+001D:  BSF    1F.1
+001E:  BSF    1F.2
+001F:  BCF    1F.3
+0020:  MOVLW  07
+0021:  MOVWF  1C
+0022:  BCF    03.7
 .................... {
 ....................    set_tris_d(0x00); //PORT D la OUTPUT
-0025:  MOVLW  00
-0026:  MOVWF  08
+0023:  MOVLW  00
+0024:  MOVWF  08
 .................... 
-....................    while(TRUE)
-....................    {
-....................       for(unsigned char i=0; i<8; i++){
-0027:  BCF    03.5
-0028:  CLRF   21
-0029:  MOVF   21,W
-002A:  SUBLW  07
-002B:  BTFSS  03.0
-002C:  GOTO   045
-....................          output_d(0x01 << i);
-002D:  MOVLW  01
-002E:  MOVWF  22
-002F:  MOVF   21,W
-0030:  MOVWF  78
-0031:  BTFSC  03.2
-0032:  GOTO   037
-0033:  BCF    03.0
-0034:  RLF    22,F
-0035:  DECFSZ 78,F
-0036:  GOTO   033
-0037:  BSF    03.5
-0038:  CLRF   08
-0039:  BCF    03.5
-003A:  MOVF   22,W
-003B:  MOVWF  08
-....................          delay_ms(1000);
-003C:  MOVLW  04
-003D:  MOVWF  22
-003E:  MOVLW  FA
-003F:  MOVWF  23
-0040:  GOTO   004
-0041:  DECFSZ 22,F
-0042:  GOTO   03E
-0043:  INCF   21,F
-0044:  GOTO   029
+.................... 
+....................       while(TRUE){
+....................          unsigned char out = 0x00;
+0025:  BCF    03.5
+0026:  CLRF   21
+....................          for(unsigned char i=0; i<8; i++){
+0027:  CLRF   22
+0028:  MOVF   22,W
+0029:  SUBLW  07
+002A:  BTFSS  03.0
+002B:  GOTO   042
+....................             out = out | 0x01 << i;
+002C:  MOVLW  01
+002D:  MOVWF  77
+002E:  MOVF   22,W
+002F:  MOVWF  78
+0030:  BTFSC  03.2
+0031:  GOTO   036
+0032:  BCF    03.0
+0033:  RLF    77,F
+0034:  DECFSZ 78,F
+0035:  GOTO   032
+0036:  MOVF   77,W
+0037:  IORWF  21,F
+....................             output_d(out);
+0038:  BSF    03.5
+0039:  CLRF   08
+003A:  BCF    03.5
+003B:  MOVF   21,W
+003C:  MOVWF  08
+....................             delay_ms(100);
+003D:  MOVLW  64
+003E:  MOVWF  24
+003F:  CALL   004
+0040:  INCF   22,F
+0041:  GOTO   028
+....................          }
+....................          for(unsigned char i=1; i<=8; i++){
+0042:  MOVLW  01
+0043:  MOVWF  23
+0044:  MOVF   23,W
+0045:  SUBLW  08
+0046:  BTFSS  03.0
+0047:  GOTO   05E
+....................             out = out & 0xFF>>i;
+0048:  MOVLW  FF
+0049:  MOVWF  77
+004A:  MOVF   23,W
+004B:  MOVWF  78
+004C:  BTFSC  03.2
+004D:  GOTO   052
+004E:  BCF    03.0
+004F:  RRF    77,F
+0050:  DECFSZ 78,F
+0051:  GOTO   04E
+0052:  MOVF   77,W
+0053:  ANDWF  21,F
+....................             output_d(out);
+0054:  BSF    03.5
+0055:  CLRF   08
+0056:  BCF    03.5
+0057:  MOVF   21,W
+0058:  MOVWF  08
+....................             delay_ms(100);
+0059:  MOVLW  64
+005A:  MOVWF  24
+005B:  CALL   004
+005C:  INCF   23,F
+005D:  GOTO   044
+....................          }
+005E:  GOTO   026
 ....................       }
-0045:  GOTO   028
-....................    }
-.................... //!   unsigned char x = 0;
-.................... //!   while(x % 5) 
-.................... //!   {
-.................... //!      output_high(PIN_D0); //xuat muc cao ra chan RD0 cua vi dieu khien
-.................... //!      output_high(PIN_D1);
-.................... //!      output_high(PIN_D2);
-.................... //!      output_high(PIN_D3);
-.................... //!      delay_ms(1000);
-.................... //!      output_low(PIN_D0); //Xuat muc thap ra chan RD0 cua vi dieu khien
-.................... //!      output_low(PIN_D1);
-.................... //!      output_low(PIN_D2);
-.................... //!      output_low(PIN_D3);
-.................... //!      delay_ms(1000);
-.................... //!      x = x + 1;
-.................... //!   }
+.................... 
 .................... }
 .................... 
-0046:  SLEEP
+005F:  SLEEP
 .................... 
-.................... //while, for
 .................... 
 .................... 
 

@@ -1,0 +1,17 @@
+#include <16F877A.h> //Khai bao thu vien su dung 
+#use delay(crystal=20000000) //Khai bao thach anh su dung 20Mhz
+
+void main() //Chuong trinh chinh
+{
+   set_tris_d(0x00); //PORT D la OUTPUT
+   while(TRUE){
+      output_b(0b00000001);
+      delay_ms(100);
+      output_b(0b00000000);
+      delay_ms(100);
+   }
+}
+
+
+
+
