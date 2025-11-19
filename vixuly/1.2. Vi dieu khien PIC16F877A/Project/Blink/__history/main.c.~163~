@@ -13,7 +13,7 @@ void main() //Chuong trinh chinh
    output_low(PIN_D3);
    while(TRUE){
       if(RD7 == 0){
-         delay_ms(300);
+         delay_ms(10);
          count ++;
          if(count == 5) count = 0;
       }

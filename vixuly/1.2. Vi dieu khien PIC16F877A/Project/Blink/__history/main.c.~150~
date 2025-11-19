@@ -1,0 +1,27 @@
+#include <16F877A.h> //Khai bao thu vien su dung 
+#use delay(crystal=20000000) //Khai bao thach anh su dung 20Mhz
+#bit RD7   = 0x08.7
+void main() //Chuong trinh chinh
+{
+   unsigned char count = 0;
+   set_tris_d(0x80); //PORT D la OUTPUT
+   // |RD7  |RD6  |RD5  |RD4  |RD3  |RD2  |RD1  |RD0
+   //    1    0     0     0     0     0     0     0
+   output_low(PIN_D0);
+   output_low(PIN_D1);
+   output_low(PIN_D2);
+   output_low(PIN_D3);
+      while(TRUE){
+//!         if(RD7){
+//!            output_high(PIN_D0);
+//!         } 
+//!         else {
+//!            output_low(PIN_D0);
+//!         }
+      }
+
+}
+
+
+
+

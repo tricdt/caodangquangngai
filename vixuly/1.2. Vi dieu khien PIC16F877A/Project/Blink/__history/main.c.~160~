@@ -13,7 +13,7 @@ void main() //Chuong trinh chinh
    output_low(PIN_D3);
    while(TRUE){
       if(RD7 == 0){
-         delay_ms(300);
+         delay_ms(10);
          count ++;
          if(count == 5) count = 0;
       }
@@ -30,22 +30,8 @@ void main() //Chuong trinh chinh
          output_low(PIN_D3);
       }
       if(count == 2){
-         output_low(PIN_D0);
-         output_high(PIN_D1);
-         output_low(PIN_D2);
-         output_low(PIN_D3);
       }
       if(count ==3){
-         output_low(PIN_D0);
-         output_low(PIN_D1);
-         output_high(PIN_D2);
-         output_low(PIN_D3);
-      }
-      if(count ==4){
-         output_low(PIN_D0);
-         output_low(PIN_D1);
-         output_low(PIN_D2);
-         output_high(PIN_D3);
       }
    }
    

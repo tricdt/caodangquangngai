@@ -1,16 +1,16 @@
 004-005 @WRITE_PROGRAM_MEMORY8.P1
 004-005 @READ_PROGRAM_MEMORY8.P2
 008     PSP_DATA
-015     CCP_1
+008.7   RD7
 015     CCP_1_LOW
+015     CCP_1
 016     CCP_1_HIGH
 01B     CCP_2_LOW
 01B     CCP_2
 01C     CCP_2_HIGH
-021     main.out
-022     main.i
-023     main.i
-024     @delay_ms1.P1
+021     main.count
+022     main.@SCRATCH1
+023     @delay_ms1.P1
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -23,20 +23,20 @@
 
 ROM Allocation:
 000004  @delay_ms1
-000018  @cinit1
-000018  main
-000022  @cinit2
+00001A  @cinit1
+00001A  main
+000024  @cinit2
 
 Project Directory:
     F:\Edu\Vi dieu khien\doc\vixuly\1.2. Vi dieu khien PIC16F877A\Project\Blink\
 
 Project Files:
-    main.c                                                  [12-Nov-25 20:35  CRC=33096F30]
+    main.c                                                  [19-Nov-25 20:16  CRC=D9453101]
     C:\Program Files (x86)\PICC\Devices\16F877A.h           [21-Oct-22 11:02  CRC=6A06E202]
 
-Source signature=07173334
+Source signature=AD52F505
 Program memory checksum=0000
-Hex file CRC=FECC
+Hex file CRC=745A
 
 Units:
     F:\Edu\Vi dieu khien\doc\vixuly\1.2. Vi dieu khien PIC16F877A\Project\Blink\main (main)
